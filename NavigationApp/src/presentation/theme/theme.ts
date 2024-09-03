@@ -37,4 +37,11 @@ export const globalStyles = StyleSheet.create({
         fontSize: 30,
         marginBottom: 10,
     },
+
+    title2center:{
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginTop: 20,
+    },
 });
