@@ -1,11 +1,20 @@
 import { HttpAdapter } from '../../../config/adapters/http/http.adapter';
 import { MovieMapper } from '../../../infrastructure/mappers/movie.mapper';
-import { PopularResponse } from '../../../infrastructure/movie-db.responses';
-import type { Movie } from '../../models/movie.model';
+import { PopularResponse } from '../../../infrastructure/interfaces/movie-db.responses';
+import type { Movie } from '../../entities/movie.entity';
 
-export const moviesPopularUseCase = async (fetcher: HttpAdapter): Promise<Movie[]> => {
+interface Options {
+    page?: number;
+    limit?: number;
+}
+
+export const moviesPopularUseCase = async (fetcher: HttpAdapter, options?: Options): Promise<Movie[]> => {
     try {
-        const popular = await fetcher.get<PopularResponse>('/popular');
+        const popular = await fetcher.get<PopularResponse>('/popular' , {
+            params: {
+                page: options?.page || 1,
+            },
+        });
 
         return popular.results.map( result => MovieMapper.fromMovieDBResultToModel(result) );
 

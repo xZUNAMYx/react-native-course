@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Pressable, StyleSheet, View } from 'react-native';
-import { Movie } from '../../../core/models/movie.model';
+import { Movie } from '../../../core/entities/movie.entity';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { RootStackParams } from '../../../navigation/Navigation';
 
@@ -19,9 +19,9 @@ export const MoviePoster = ({ movie, height = 400, width = 300}: Props) => {
             style={({ pressed }) => ({
                 width,
                 height,
-                marginHorizontal: 10,
+                marginHorizontal: 5,
                 paddingBottom: 20,
-                paddingHorizontal: 10,
+                paddingHorizontal: 5,
                 opacity: pressed ? 0.7 : 1,
             })}
         >
