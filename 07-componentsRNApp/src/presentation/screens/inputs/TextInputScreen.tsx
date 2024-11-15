@@ -48,7 +48,7 @@ export const TextInputScreen = () => {
 
                     <View style={{ height: 10 }} />
 
-                    <Card>
+                    <Card style={{ marginBottom: 20 }}>
                         <Text>{JSON.stringify(form, null, 2)}</Text>
                         <Text>{JSON.stringify(form, null, 2)}</Text>
                         <Text>{JSON.stringify(form, null, 2)}</Text>
@@ -61,7 +61,6 @@ export const TextInputScreen = () => {
                     </Card>
                 </CustomView>
 
-                <View style={{ height: 30 }} />
             </ScrollView>
         </KeyboardAvoidingView>
     );

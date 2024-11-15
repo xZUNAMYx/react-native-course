@@ -1,13 +1,16 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
-import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
+import React, { useContext } from 'react';
+import { Animated, Pressable, StyleSheet, Text } from 'react-native';
 import { useAnimation } from '../../hooks/useAnimation';
+import { ThemeContext } from '../../context/ThemeContext';
+import { CustomView } from '../../components/ui/CustomView';
 
 export const Animation101Screen = () => {
     const { animatedOpacity, animatedTop, fadeIn, fadeOut, startMovingTopPosition } = useAnimation();
+    const { colors } = useContext(ThemeContext);
 
     return (
-        <View style={ styles.container }>
+        <CustomView style={ styles.container }>
 
             <Animated.View style={[
                 styles.purpleBox,
@@ -25,14 +28,14 @@ export const Animation101Screen = () => {
                     initialPosition: -100, duration: 700,
                 });
             }} style={{ marginTop: 10 }}>
-                <Text>FadeIn</Text>
+                <Text style={{ color: colors.text }}>FadeIn</Text>
             </Pressable>
 
             <Pressable onPress={() => fadeOut({})} style={{ marginTop: 10 }}>
-                <Text>FadeOut</Text>
+                <Text style={{ color: colors.text }}>FadeOut</Text>
             </Pressable>
 
-        </View>
+        </CustomView>
     );
 };
 

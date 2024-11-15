@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useState } from 'react';
 import { CustomView } from '../../components/ui/CustomView';
 import { Card } from '../../components/ui/Card';
@@ -17,8 +18,8 @@ export const SwitchScreen = () => {
 
     return (
         // eslint-disable-next-line react-native/no-inline-styles
-        <CustomView style={{ marginTop: 100, paddingHorizontal: 10 }}>
-            <Card>
+        <CustomView style={{ marginTop: 0, paddingHorizontal: 10 }}>
+            <Card style={{ marginTop: 50 }}>
                 <CustomSwitch
                     isOn={ state.isActive }
                     onChange={ (value) => setState({ ...state, isActive: value }) }
